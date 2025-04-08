@@ -1,12 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { FiPlusCircle } from "react-icons/fi";
 import Search from "../search";
 import Table from "./table";
 import { products } from "../../lib/placeholder-data";
 
 export default function KelolaInformasiBarangPage() {
+  const router = useRouter();
+
   const [search, setSearch] = useState("");
   const filteredData = products.filter((item) =>
     item.title.toLowerCase().includes(search.toLowerCase())
@@ -26,7 +29,7 @@ export default function KelolaInformasiBarangPage() {
               className="text-green-700 hover:text-green-900 text-3xl cursor-pointer"
               title="Tambah Barang"
               onClick={() => {
-                alert("Tambah Barang diklik!");
+                router.push("/dashboard/kelolaInformasiBarang/tambah");
               }}
             >
               <FiPlusCircle />

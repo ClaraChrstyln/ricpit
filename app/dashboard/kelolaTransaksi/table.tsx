@@ -1,6 +1,7 @@
 "use client";
 
 import { Eye, Pencil } from "lucide-react";
+import { formatPrice } from "../../../lib/FormatPrice";
 
 interface TableItem {
   id: number;
@@ -32,7 +33,7 @@ export default function Table({ data }: TableProps) {
               <td className="p-4">{transaksi.id}</td>
               <td className="p-4">{transaksi.items}</td>
               <td className="p-4">
-                Rp {transaksi.total.toLocaleString("id-ID")}
+                {formatPrice(transaksi.total)}
               </td>
               <td className="p-4">{transaksi.status}</td>
               <td className="p-4 flex justify-center gap-4">
